@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![CheckInTime](src/main/resources/com/example/studentmanager/icon.jpg)
+<img src="src/main/resources/com/example/studentmanager/icon.jpg" alt="CheckInTime" width="120"/>
 
 **A portfolio-quality JavaFX desktop app to track subjects, tasks, and attendance — powered by a live Supabase (PostgreSQL) database.**
 
