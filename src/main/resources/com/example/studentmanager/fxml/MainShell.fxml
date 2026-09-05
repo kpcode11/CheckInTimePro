@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanager.controller.MainShellController">
+    <!-- Sidebar -->
+    <VBox prefWidth="220" spacing="10" style="-fx-background-color: -color-bg-subtle; -fx-border-color: transparent -color-border-default transparent transparent; -fx-border-width: 0 1 0 0;">
+        <padding>
+            <Insets top="20" right="10" bottom="20" left="10"/>
+        </padding>
+        <Label text="StudentManager Pro" style="-fx-font-size: 16px; -fx-font-weight: bold;">
+            <VBox.margin><Insets bottom="20"/></VBox.margin>
+        </Label>
+        
+        <Button text="Dashboard" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToDashboard" styleClass="flat"/>
+        <Button text="Subjects" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToSubjects" styleClass="flat"/>
+        <Button text="Tasks" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToTasks" styleClass="flat"/>
+        <Button text="Attendance" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToAttendance" styleClass="flat"/>
+        <Button text="Reports" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToReports" styleClass="flat"/>
+        
+        <Region VBox.vgrow="ALWAYS" />
+        
+        <Button text="Settings" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#navToSettings" styleClass="flat"/>
+        <Button fx:id="themeToggleButton" text="Light Mode" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#toggleTheme" styleClass="flat"/>
+        <Button text="Logout" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#handleLogout" styleClass="flat, danger"/>
+    </VBox>
+    
+    <!-- Content Area -->
+    <StackPane fx:id="contentArea" HBox.hgrow="ALWAYS" style="-fx-background-color: -color-bg-default;"/>
+</HBox>
