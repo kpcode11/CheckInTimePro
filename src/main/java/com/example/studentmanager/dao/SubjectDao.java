@@ -50,4 +50,32 @@ public class SubjectDao {
             return false;
         }
     }
+
+    public boolean updateSubject(Subject subject) {
+        String sql = "UPDATE subjects SET subject_name = ?, marks_obtained = ?, marks_total = ?, target_percentage = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, subject.subjectName());
+            pstmt.setInt(2, subject.marksObtained());
+            pstmt.setInt(3, subject.marksTotal());
+            pstmt.setInt(4, subject.targetPercentage());
+            pstmt.setInt(5, subject.id());
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteSubject(int id) {
+        String sql = "DELETE FROM subjects WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

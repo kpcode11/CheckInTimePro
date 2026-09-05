@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Subjects Page" style="-fx-font-size: 24px; -fx-text-fill: -color-fg-muted;"/>
-</StackPane>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanager.controller.SubjectsController" style="-fx-background-color: transparent;">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Subjects" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <TextField fx:id="searchField" promptText="Search subjects..." prefWidth="250" />
+        <Button text="Add" onAction="#handleAdd" styleClass="accent"/>
+        <Button text="Edit" onAction="#handleEdit"/>
+        <Button text="Delete" onAction="#handleDelete" styleClass="danger"/>
+    </HBox>
+
+    <TableView fx:id="subjectsTable" VBox.vgrow="ALWAYS" styleClass="striped">
+        <columns>
+            <TableColumn fx:id="nameCol" text="Subject Name" prefWidth="200"/>
+            <TableColumn fx:id="marksCol" text="Marks (Obtained/Total)" prefWidth="150"/>
+            <TableColumn fx:id="targetCol" text="Target %" prefWidth="100"/>
+            <TableColumn fx:id="progressCol" text="Progress" prefWidth="300"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+</VBox>

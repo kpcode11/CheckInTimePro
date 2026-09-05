@@ -81,4 +81,4 @@ Thumbs.db
 !.env.sample
 
 # Claude Tasks (Optional - uncomment if you don't want to track our plan)
-# .claude/
+.claude/

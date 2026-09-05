@@ -97,3 +97,30 @@ We will follow an iterative MVP approach, building the foundation first.
 - Integrated smooth navigation hooks for Dashboard, Subjects, Tasks, Attendance, Reports, and Settings.
 - Implemented a persistent Light/Dark mode toggle interacting directly with AtlantaFX's `Dracula` and `NordLight` themes.
 - Updated the main entry flow: the application launches into the Login view and securely transitions to the Main Shell upon successful authentication.
+
+### [Completed] Phase 5 (Dashboard)
+- Implemented `GradeService.java` to aggregate user data, calculate overall averages, sum tasks due today, and compute attendance percentages based on data sourced from `SubjectDao`, `TaskDao`, and `AttendanceDao`.
+- Designed a sophisticated `Dashboard.fxml` layout, comprising dynamic summary cards for high-level metrics.
+- Integrated standard JavaFX charts (`PieChart` for Marks Distribution and `BarChart` for Subject Performance) bound to the `GradeService`.
+- Added embedded `ListView` widgets to surface "Today's Tasks" and the next 3 upcoming tasks dynamically.
+- Developed `DashboardController.java` to tie the UI to backend services upon initialization for the logged-in user.
+
+### [Completed] Phase 6 (Subjects Module)
+- Updated `SubjectDao.java` to include full CRUD functionality by adding `updateSubject` and `deleteSubject` operations.
+- Built `Subjects.fxml` encompassing a `TableView` with custom columns, a search bar, and CRUD action buttons.
+- Developed `SubjectsController.java` integrating observable lists and filtered lists for real-time search functionality.
+- Implemented a custom `ProgressBarTableCell` factory that dynamically colors progress bars (green, yellow, red) based on whether the student's marks meet their defined target percentage.
+- Engineered a modal `Dialog` interface for seamlessly adding and editing Subject records within the module.
+
+### [Completed] Phase 7 (Task Manager)
+- Updated `TaskDao.java` to support full CRUD, including a dedicated `updateTaskStatus` method for Kanban drag-and-drop.
+- Built a Kanban-style layout in `Tasks.fxml` using three responsive `VBox` columns (TODO, IN PROGRESS, DONE) wrapped inside a `ScrollPane`.
+- Developed `TasksController.java` to render tasks as styled cards and implemented full Drag-and-Drop capability between columns, saving status changes instantly to Supabase.
+- Configured a new modal `Dialog` in `TasksController.java` allowing users to quickly create and assign tasks.
+- Created `ReminderService.java` using a `ScheduledExecutorService` as the foundation for background task reminder notifications.
+
+### [Completed] Phase 8 (Attendance Tracker)
+- Modified `AttendanceDao.java` to support an intelligent UPSERT strategy (`UPDATE` fallback to `INSERT`), ensuring duplicate records for the same day/subject are handled cleanly.
+- Designed `Attendance.fxml` with an intuitive input form mapping `ComboBox` and `DatePicker` controls to the logging process.
+- Implemented `AttendanceController.java` to dynamically generate a 35-day Heatmap grid.
+- Configured the Heatmap grid to dynamically color code blocks (Green for Present, Red for Absent) and added interactive `Tooltip` hovers to show specific dates and statuses.

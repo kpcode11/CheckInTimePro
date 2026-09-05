@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Attendance Page" style="-fx-font-size: 24px; -fx-text-fill: -color-fg-muted;"/>
-</StackPane>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanager.controller.AttendanceController" style="-fx-background-color: transparent;">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Attendance Tracker" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="20" alignment="CENTER_LEFT" styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 20;">
+        <VBox spacing="10">
+            <Label text="Log Attendance" style="-fx-font-weight: bold;"/>
+            <ComboBox fx:id="subjectComboBox" promptText="Select Subject" prefWidth="200"/>
+            <DatePicker fx:id="datePicker" promptText="Select Date" prefWidth="200"/>
+            <HBox spacing="10">
+                <RadioButton fx:id="presentRadio" text="Present"/>
+                <RadioButton fx:id="absentRadio" text="Absent"/>
+            </HBox>
+            <Button text="Log Attendance" onAction="#handleLogAttendance" styleClass="accent" maxWidth="Infinity"/>
+        </VBox>
+        
+        <Region HBox.hgrow="ALWAYS" />
+        
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="35-Day Heatmap" style="-fx-font-weight: bold;"/>
+            <GridPane fx:id="heatmapGrid" hgap="5" vgap="5" alignment="CENTER">
+                <!-- Heatmap populated dynamically -->
+            </GridPane>
+            <Label fx:id="statsLabel" style="-fx-text-fill: -color-fg-muted;"/>
+        </VBox>
+    </HBox>
+</VBox>

@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Dashboard Page" style="-fx-font-size: 24px; -fx-text-fill: -color-fg-muted;"/>
-</StackPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanager.controller.DashboardController" fitToWidth="true" style="-fx-background-color: transparent;">
+    <VBox spacing="20" style="-fx-background-color: -color-bg-default;">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Header -->
+        <Label fx:id="greetingLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <!-- Summary Cards -->
+        <HBox spacing="20">
+            <!-- Overall Average Card -->
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS" alignment="CENTER">
+                <Label text="Overall Average" style="-fx-text-fill: -color-fg-muted;"/>
+                <Label fx:id="averageMarksLabel" text="0.0%" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: -color-accent-emphasis;"/>
+            </VBox>
+            <!-- Tasks Due Card -->
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS" alignment="CENTER">
+                <Label text="Tasks Due Today" style="-fx-text-fill: -color-fg-muted;"/>
+                <Label fx:id="tasksDueLabel" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: -color-warning-emphasis;"/>
+            </VBox>
+            <!-- Attendance Card -->
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 20;" HBox.hgrow="ALWAYS" alignment="CENTER">
+                <Label text="Current Attendance" style="-fx-text-fill: -color-fg-muted;"/>
+                <Label fx:id="attendanceLabel" text="0.0%" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: -color-success-emphasis;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Charts Area -->
+        <HBox spacing="20" VBox.vgrow="ALWAYS">
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                <Label text="Marks Distribution" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <PieChart fx:id="marksPieChart" prefHeight="300" />
+            </VBox>
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                <Label text="Subject Performance" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <BarChart fx:id="subjectBarChart" prefHeight="300">
+                    <xAxis>
+                        <CategoryAxis label="Subjects" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Percentage (%)" />
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </HBox>
+
+        <!-- Tasks Widgets Area -->
+        <HBox spacing="20">
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                <Label text="Today's Tasks" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <ListView fx:id="todayTasksListView" prefHeight="150" style="-fx-background-color: transparent;"/>
+            </VBox>
+            <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                <Label text="Upcoming (Next 3)" style="-fx-font-weight: bold; -fx-padding: 10;"/>
+                <ListView fx:id="upcomingTasksListView" prefHeight="150" style="-fx-background-color: transparent;"/>
+            </VBox>
+        </HBox>
+
+    </VBox>
+</ScrollPane>
