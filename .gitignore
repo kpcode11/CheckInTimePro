@@ -80,5 +80,7 @@ Thumbs.db
 .env.*
 !.env.sample
 
-# Claude Tasks (Optional - uncomment if you don't want to track our plan)
+# IDE folders
+.idea/
+.vscode/
 .claude/
