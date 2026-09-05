@@ -30,6 +30,8 @@ public class Router {
             Parent root = loader.load();
             
             Scene scene = new Scene(root, 1000, 700);
+            var css = MainApp.class.getResource("/com/example/studentmanager/css/style.css");
+            if (css != null) scene.getStylesheets().add(css.toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

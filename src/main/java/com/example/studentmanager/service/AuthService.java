@@ -13,6 +13,10 @@ public class AuthService {
         this.userDao = new UserDao();
     }
 
+    public AuthService(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     public boolean register(String username, String password) {
         if (userDao.findByUsername(username).isPresent()) {
             return false; // User already exists

@@ -26,6 +26,12 @@
         <Button text="Logout" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#handleLogout" styleClass="flat, danger"/>
     </VBox>
     
-    <!-- Content Area -->
-    <StackPane fx:id="contentArea" HBox.hgrow="ALWAYS" style="-fx-background-color: -color-bg-default;"/>
+    <!-- Content Area with Error Banner -->
+    <VBox HBox.hgrow="ALWAYS">
+        <HBox fx:id="errorBanner" managed="false" visible="false" alignment="CENTER" spacing="10" style="-fx-background-color: -color-danger-emphasis; -fx-padding: 10;">
+            <Label fx:id="errorBannerLabel" text="Connection to Database Failed." style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="Retry Connection" onAction="#handleRetryConnection" style="-fx-background-color: white; -fx-text-fill: -color-danger-emphasis;"/>
+        </HBox>
+        <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" style="-fx-background-color: -color-bg-default;"/>
+    </VBox>
 </HBox>

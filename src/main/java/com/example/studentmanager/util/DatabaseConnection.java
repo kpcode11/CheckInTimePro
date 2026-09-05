@@ -31,4 +31,15 @@ public class DatabaseConnection {
         }
         return dataSource.getConnection();
     }
+
+    public static boolean checkConnection() {
+        try {
+            if (dataSource == null) return false;
+            try (Connection c = dataSource.getConnection()) {
+                return c.isValid(2);
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }

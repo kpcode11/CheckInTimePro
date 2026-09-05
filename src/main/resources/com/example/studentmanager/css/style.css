@@ -1,0 +1,25 @@
+/* Global Typography and Spacing Adjustments */
+.root {
+    -fx-font-family: "Segoe UI", "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+/* Card Styling enhancements over AtlantaFX defaults */
+.card {
+    -fx-background-color: -color-bg-default;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 4);
+    -fx-padding: 15px;
+}
+
+/* Make TableViews and ListViews look cleaner when empty */
+.table-view .placeholder .label, .list-view .placeholder .label {
+    -fx-font-size: 14px;
+    -fx-text-fill: -color-fg-muted;
+}
+
+/* Consistent margins for headers */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-fg-default;
+}

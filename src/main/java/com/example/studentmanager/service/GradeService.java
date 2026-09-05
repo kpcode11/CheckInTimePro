@@ -11,9 +11,21 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class GradeService {
-    private final SubjectDao subjectDao = new SubjectDao();
-    private final TaskDao taskDao = new TaskDao();
-    private final AttendanceDao attendanceDao = new AttendanceDao();
+    private final SubjectDao subjectDao;
+    private final TaskDao taskDao;
+    private final AttendanceDao attendanceDao;
+
+    public GradeService() {
+        this.subjectDao = new SubjectDao();
+        this.taskDao = new TaskDao();
+        this.attendanceDao = new AttendanceDao();
+    }
+
+    public GradeService(SubjectDao subjectDao, TaskDao taskDao, AttendanceDao attendanceDao) {
+        this.subjectDao = subjectDao;
+        this.taskDao = taskDao;
+        this.attendanceDao = attendanceDao;
+    }
 
     public List<Subject> getSubjects(String username) {
         return subjectDao.getSubjectsForUser(username);

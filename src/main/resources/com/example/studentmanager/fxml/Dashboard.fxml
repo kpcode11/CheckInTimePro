@@ -58,11 +58,19 @@
         <HBox spacing="20">
             <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
                 <Label text="Today's Tasks" style="-fx-font-weight: bold; -fx-padding: 10;"/>
-                <ListView fx:id="todayTasksListView" prefHeight="150" style="-fx-background-color: transparent;"/>
+                <ListView fx:id="todayTasksListView" prefHeight="150" style="-fx-background-color: transparent;">
+                    <placeholder>
+                        <Label text="No tasks due today. Relax!" style="-fx-text-fill: -color-fg-muted;"/>
+                    </placeholder>
+                </ListView>
             </VBox>
             <VBox styleClass="card" style="-fx-background-color: -color-bg-subtle; -fx-background-radius: 10; -fx-padding: 10;" HBox.hgrow="ALWAYS">
                 <Label text="Upcoming (Next 3)" style="-fx-font-weight: bold; -fx-padding: 10;"/>
-                <ListView fx:id="upcomingTasksListView" prefHeight="150" style="-fx-background-color: transparent;"/>
+                <ListView fx:id="upcomingTasksListView" prefHeight="150" style="-fx-background-color: transparent;">
+                    <placeholder>
+                        <Label text="No upcoming tasks." style="-fx-text-fill: -color-fg-muted;"/>
+                    </placeholder>
+                </ListView>
             </VBox>
         </HBox>
 

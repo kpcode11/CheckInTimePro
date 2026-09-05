@@ -49,6 +49,18 @@ public class TasksController {
                 case "DONE": doneColumn.getChildren().add(card); break;
             }
         }
+        
+        addEmptyStateIfNeeded(todoColumn, "No tasks here. Relax!");
+        addEmptyStateIfNeeded(inProgressColumn, "Drop a task here to start working.");
+        addEmptyStateIfNeeded(doneColumn, "Nothing done yet. Get to work!");
+    }
+
+    private void addEmptyStateIfNeeded(VBox column, String text) {
+        if (column.getChildren().isEmpty()) {
+            Label emptyLabel = new Label(text);
+            emptyLabel.setStyle("-fx-text-fill: -color-fg-muted; -fx-font-style: italic; -fx-padding: 20;");
+            column.getChildren().add(emptyLabel);
+        }
     }
 
     private VBox createCard(Task t) {
