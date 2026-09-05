@@ -6,6 +6,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts.FontName;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,22 +23,22 @@ public class PdfExportService {
             try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
                 contentStream.beginText();
                 // We use standard PDFBox fonts which don't require external loading in basic scenarios
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 18);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA_BOLD), 18);
                 contentStream.newLineAtOffset(50, 750);
                 contentStream.showText("StudentManager Pro - Academic Report");
                 
-                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA), 12);
                 contentStream.newLineAtOffset(0, -30);
                 contentStream.showText("Student: " + username);
                 contentStream.newLineAtOffset(0, -20);
                 contentStream.showText("Date: " + LocalDate.now());
                 
                 // Subjects
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 14);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA_BOLD), 14);
                 contentStream.newLineAtOffset(0, -40);
                 contentStream.showText("Subject Performance:");
                 
-                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA), 12);
                 for (Subject s : subjects) {
                     contentStream.newLineAtOffset(0, -20);
                     double pct = s.marksTotal() > 0 ? ((double) s.marksObtained() / s.marksTotal()) * 100 : 0;
@@ -46,11 +47,11 @@ public class PdfExportService {
                 }
                 
                 // Tasks
-                contentStream.setFont(PDType1Font.HELVETICA_BOLD, 14);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA_BOLD), 14);
                 contentStream.newLineAtOffset(0, -40);
                 contentStream.showText("Pending Tasks:");
                 
-                contentStream.setFont(PDType1Font.HELVETICA, 12);
+                contentStream.setFont(new PDType1Font(FontName.HELVETICA), 12);
                 for (Task t : tasks) {
                     if (!"DONE".equals(t.status())) {
                         contentStream.newLineAtOffset(0, -20);
