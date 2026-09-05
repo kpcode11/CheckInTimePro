@@ -17,28 +17,28 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 | Module | What it does |
 |--------|-------------|
-| 🔐 **Auth** | Secure login & sign-up with jBCrypt-hashed passwords |
-| 📊 **Dashboard** | Live stat cards (average marks, attendance %, tasks due today), PieChart & BarChart |
-| 📚 **Subjects** | Full CRUD — add, edit, delete subjects with marks tracking and per-subject progress bars |
-| ✅ **Task Manager** | Kanban board (To Do / In Progress / Done) with drag-and-drop task cards |
-| 📅 **Attendance** | Calendar heatmap showing attended vs missed days per subject |
-| 📄 **PDF Reports** | One-click term report generation via Apache PDFBox |
-| ⚙️ **Settings** | Dark/light theme toggle (Dracula ↔ NordLight), user preferences saved to DB |
-| 🔔 **Error Banner** | Real-time Supabase connection health check with a dismissible banner |
+|  **Auth** | Secure login & sign-up with jBCrypt-hashed passwords |
+|  **Dashboard** | Live stat cards (average marks, attendance %, tasks due today), PieChart & BarChart |
+|  **Subjects** | Full CRUD — add, edit, delete subjects with marks tracking and per-subject progress bars |
+|  **Task Manager** | Kanban board (To Do / In Progress / Done) with drag-and-drop task cards |
+|  **Attendance** | Calendar heatmap showing attended vs missed days per subject |
+|  **PDF Reports** | One-click term report generation via Apache PDFBox |
+|  **Settings** | Dark/light theme toggle (Dracula ↔ NordLight), user preferences saved to DB |
+|  **Error Banner** | Real-time Supabase connection health check with a dismissible banner |
 
 ---
 
-## 🖼️ Screenshots
+##  Screenshots
 
 > Run the app locally to see it in action — the Dracula dark theme is set as default.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Choice |
 |-------|--------|
@@ -58,7 +58,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -145,7 +145,7 @@ mvn clean javafx:run
 
 ---
 
-## 🧪 Running Tests
+##  Running Tests
 
 ```bash
 mvn clean test
@@ -161,7 +161,7 @@ mvn clean test
 
 ---
 
-## 📦 Building a Portable Distribution
+##  Building a Portable Distribution
 
 Creates a self-contained `StudentManagerPro/` folder with a bundled JRE — no Java installation needed on the target machine:
 
@@ -175,7 +175,7 @@ Output: `target/installer/StudentManagerPro/StudentManagerPro.exe`
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -199,7 +199,7 @@ src/
 
 ---
 
-## 🔒 Security Notes
+##  Security Notes
 
 - **Never commit `.env`** — it's in `.gitignore` by default.
 - Passwords are stored as **bcrypt hashes**, never plaintext.
@@ -207,7 +207,7 @@ src/
 
 ---
 
-## 📜 License
+##  License
 
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
 
