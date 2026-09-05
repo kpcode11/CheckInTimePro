@@ -124,3 +124,15 @@ We will follow an iterative MVP approach, building the foundation first.
 - Designed `Attendance.fxml` with an intuitive input form mapping `ComboBox` and `DatePicker` controls to the logging process.
 - Implemented `AttendanceController.java` to dynamically generate a 35-day Heatmap grid.
 - Configured the Heatmap grid to dynamically color code blocks (Green for Present, Red for Absent) and added interactive `Tooltip` hovers to show specific dates and statuses.
+
+### [Completed] Phase 9 (Reports)
+- Implemented `PdfExportService.java` using Apache PDFBox to generate a robust, natively formatted PDF document containing user statistics, subject grades, and pending tasks.
+- Engineered `Reports.fxml` with a clean, centralized layout presenting a large "Export to PDF" call-to-action button paired with an Ikonli PDF icon.
+- Created `ReportsController.java` to bridge the UI to the export logic. Integrated the JavaFX `FileChooser` dialog to let the user pick their desired save path and filename.
+- Added visual feedback (success/error messages directly in the UI and a native JavaFX `Alert` popup) following the export operation.
+
+### [Completed] Phase 10 (Settings)
+- Enhanced `UserSettingsDao.java` to support an UPSERT (`UPDATE` fallback to `INSERT`) operation, ensuring settings are correctly saved or updated per user.
+- Constructed `Settings.fxml` featuring a clean, grid-based layout using standard JavaFX controls (`ComboBox`, `Spinner`, `CheckBox`) for user preferences (Theme, Attendance Threshold, Notifications).
+- Implemented `SettingsController.java` to load saved preferences automatically on startup and handle saving modifications back to the Supabase database.
+- Integrated a native JavaFX `Alert` to provide instant user feedback upon saving preferences.

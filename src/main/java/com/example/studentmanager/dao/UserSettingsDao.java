@@ -30,4 +30,30 @@ public class UserSettingsDao {
         }
         return Optional.empty();
     }
+    public boolean saveSettings(UserSettings settings) {
+        String updateSql = "UPDATE user_settings SET theme = ?, attendance_threshold = ?, notifications_enabled = ? WHERE username = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+            updateStmt.setString(1, settings.theme());
+            updateStmt.setInt(2, settings.attendanceThreshold());
+            updateStmt.setBoolean(3, settings.notificationsEnabled());
+            updateStmt.setString(4, settings.username());
+            
+            if (updateStmt.executeUpdate() > 0) {
+                return true;
+            }
+            
+            String insertSql = "INSERT INTO user_settings (username, theme, attendance_threshold, notifications_enabled) VALUES (?, ?, ?, ?)";
+            try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+                insertStmt.setString(1, settings.username());
+                insertStmt.setString(2, settings.theme());
+                insertStmt.setInt(3, settings.attendanceThreshold());
+                insertStmt.setBoolean(4, settings.notificationsEnabled());
+                return insertStmt.executeUpdate() > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
