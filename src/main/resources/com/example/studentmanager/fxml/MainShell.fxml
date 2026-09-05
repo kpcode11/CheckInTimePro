@@ -9,7 +9,7 @@
         <padding>
             <Insets top="20" right="10" bottom="20" left="10"/>
         </padding>
-        <Label text="StudentManager Pro" style="-fx-font-size: 16px; -fx-font-weight: bold;">
+        <Label text="CheckInTime" style="-fx-font-size: 16px; -fx-font-weight: bold;">
             <VBox.margin><Insets bottom="20"/></VBox.margin>
         </Label>
         

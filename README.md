@@ -1,10 +1,10 @@
-# StudentManager Pro
+# CheckInTime
 
 <div align="center">
 
-![StudentManager Pro](src/main/resources/com/example/studentmanager/icon.jpg)
+![CheckInTime](src/main/resources/com/example/studentmanager/icon.jpg)
 
-**A portfolio-quality JavaFX desktop application for students to track subjects, tasks, and attendance — powered by a live Supabase (PostgreSQL) database.**
+**A portfolio-quality JavaFX desktop app to track subjects, tasks, and attendance — powered by a live Supabase (PostgreSQL) database.**
 
 [![Java](https://img.shields.io/badge/Java-25-orange?logo=openjdk)](https://jdk.java.net/25/)
 [![JavaFX](https://img.shields.io/badge/JavaFX-26-blue?logo=java)](https://openjfx.io/)
@@ -163,13 +163,13 @@ mvn clean test
 
 ##  Building a Portable Distribution
 
-Creates a self-contained `StudentManagerPro/` folder with a bundled JRE — no Java installation needed on the target machine:
+Creates a self-contained `CheckInTime/` folder with a bundled JRE — no Java installation needed on the target machine:
 
 ```bash
 mvn -P package-win package verify -DskipTests
 ```
 
-Output: `target/installer/StudentManagerPro/StudentManagerPro.exe`
+Output: `target/installer/CheckInTime/CheckInTime.exe`
 
 > **Want a `.exe` installer?** Install [WiX Toolset](https://wixtoolset.org/) and change `app-image` → `exe` in the `package-win` profile in `pom.xml`.
 

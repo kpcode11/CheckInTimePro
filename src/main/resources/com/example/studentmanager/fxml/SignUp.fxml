@@ -11,7 +11,7 @@
         </padding>
         
         <Label text="Create Account" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-        <Label text="StudentManager Pro" style="-fx-text-fill: -color-fg-muted;"/>
+        <Label text="CheckInTime" style="-fx-text-fill: -color-fg-muted;"/>
         
         <VBox spacing="5">
             <Label text="Username"/>

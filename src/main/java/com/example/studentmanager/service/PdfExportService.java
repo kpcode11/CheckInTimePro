@@ -25,7 +25,7 @@ public class PdfExportService {
                 // We use standard PDFBox fonts which don't require external loading in basic scenarios
                 contentStream.setFont(new PDType1Font(FontName.HELVETICA_BOLD), 18);
                 contentStream.newLineAtOffset(50, 750);
-                contentStream.showText("StudentManager Pro - Academic Report");
+                contentStream.showText("CheckInTime - Academic Report");
                 
                 contentStream.setFont(new PDType1Font(FontName.HELVETICA), 12);
                 contentStream.newLineAtOffset(0, -30);

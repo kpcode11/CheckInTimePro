@@ -20,7 +20,7 @@ public class MainApp extends Application {
         } catch (Exception ignored) {}
 
         Router.init(stage);
-        stage.setTitle("StudentManager Pro");
+        stage.setTitle("CheckInTime");
         Router.navigateTo("Login.fxml");
     }
 
